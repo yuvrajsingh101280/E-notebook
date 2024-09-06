@@ -21,13 +21,16 @@ const Signup = () => {
 
     // send the data through api
 
-    const res = await fetch("http://localhost:4000/api/auth/signup", {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, password }),
-    });
+    const res = await fetch(
+      "https://e-notebook-tler.onrender.com/api/auth/signup",
+      {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      }
+    );
     const signupData = await res.json();
     console.log(signupData);
 

@@ -19,13 +19,16 @@ const MyState = ({ children }) => {
   const getAllNotes = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:4000/api/notes/fetchallnotes", {
-        method: "GET",
-        headers: {
-          "content-Type": "application/json",
-          "auth-token": localStorage.getItem("token"),
-        },
-      });
+      const res = await fetch(
+        "https://e-notebook-tler.onrender.com/api/notes/fetchallnotes",
+        {
+          method: "GET",
+          headers: {
+            "content-Type": "application/json",
+            "auth-token": localStorage.getItem("token"),
+          },
+        }
+      );
 
       const notesData = await res.json();
 
@@ -42,14 +45,17 @@ const MyState = ({ children }) => {
 
   // Add note function
   const addNote = async () => {
-    const res = await fetch("http://localhost:4000/api/notes/addnote", {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
-      },
-      body: JSON.stringify({ title, description, tag }),
-    });
+    const res = await fetch(
+      "https://e-notebook-tler.onrender.com/api/notes/addnote",
+      {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify({ title, description, tag }),
+      }
+    );
     const noteData = await res.json();
     console.log(noteData);
     getAllNotes(); //after adding the new note we will update the data and display the updated notes
@@ -70,7 +76,7 @@ const MyState = ({ children }) => {
 
   const deleteNote = async (id) => {
     const res = await fetch(
-      `http://localhost:4000/api/notes/deletenote/${id}`,
+      `https://e-notebook-tler.onrender.com/api/notes/deletenote/${id}`,
       {
         method: "DELETE",
         headers: {

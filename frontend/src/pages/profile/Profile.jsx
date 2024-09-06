@@ -8,14 +8,17 @@ const Profile = () => {
   const [user, setUser] = useState([]);
 
   const userData = async () => {
-    const res = await fetch(`http://localhost:4000/api/auth/getuser`, {
-      method: "GET",
+    const res = await fetch(
+      `https://e-notebook-tler.onrender.com/api/auth/getuser`,
+      {
+        method: "GET",
 
-      headers: {
-        "content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
-      },
-    });
+        headers: {
+          "content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+      }
+    );
 
     const userData = await res.json();
 

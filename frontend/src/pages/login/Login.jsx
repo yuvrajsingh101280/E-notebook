@@ -9,13 +9,16 @@ const Login = () => {
   const [password, setPassword] = useState();
   const navigate = useNavigate();
   const loginHandle = async () => {
-    const res = await fetch("http://localhost:4000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
+    const res = await fetch(
+      "https://e-notebook-tler.onrender.com/api/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      }
+    );
 
     const loginData = await res.json();
     console.log(loginData);

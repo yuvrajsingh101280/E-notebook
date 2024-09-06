@@ -15,13 +15,16 @@ const UpdateNote = () => {
   // Get Note By Id
 
   const getNotesById = async () => {
-    const res = await fetch(`http://localhost:4000/api/notes/notes/${id}`, {
-      method: "GET",
-      headers: {
-        "content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
-      },
-    });
+    const res = await fetch(
+      `https://e-notebook-tler.onrender.com/api/notes/notes/${id}`,
+      {
+        method: "GET",
+        headers: {
+          "content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+      }
+    );
 
     const data = await res.json();
 
@@ -42,7 +45,7 @@ const UpdateNote = () => {
   const updateNote = async () => {
     try {
       const res = await fetch(
-        `http://localhost:4000/api/notes/updatenote/${id}`,
+        `https://e-notebook-tler.onrender.com/api/notes/updatenote/${id}`,
         {
           method: "PUT",
           headers: {
