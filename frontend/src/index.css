@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  /* background: #000; */
+
+  background-image: linear-gradient(to top, #9bec00, #f3ff90);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+/* Hide scrollbar on medium and small screens */
+@media (max-width: 1024px) {
+  /* For medium and smaller screens */
+  ::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar */
+  }
+}
+
+/* Custom scrollbar styling for large screens */
+@media (min-width: 1025px) {
+  /* For large screens */
+  ::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #059212; /* Track color */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #fff; /* Thumb color */
+    border-radius: 10px; /* Optional: rounded corners for the thumb */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ccc; /* Thumb color on hover */
+  }
+}
+
