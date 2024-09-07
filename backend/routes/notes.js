@@ -67,7 +67,7 @@ router.put("/updatenote/:id", fetchUser, async (req, res) => {
         }
         if (note.user.toString() !== req.userId) {
 
-            return res.status(401).send("Not Allowed")
+            return res.status(401).send("Not Allowed, Please login ")
 
         }
 
@@ -112,7 +112,7 @@ router.delete("/deletenote/:id", fetchUser, async (req, res) => {
 
         if (note.user.toString() !== req.userId) {
 
-            return res.status(401).send("not allowd")
+            return res.status(401).send("not allowed please login")
 
         }
         const deletedNote = await Notes.findByIdAndDelete(req.params.id)

@@ -9,7 +9,7 @@ const fetchUser = (req, res, next) => {
 
     if (!token) {
 
-        res.status(401).send({ error: "Please authenticate using using a valid token" })
+        res.status(401).send({ error: "please login first" })
 
     }
 
@@ -24,7 +24,7 @@ const fetchUser = (req, res, next) => {
 
     } catch (error) {
         console.log("JWT verififcation error:", error)
-        res.status(401).send({ error: "Please authenticate with a valid token" })
+        res.status(401).send({ error: "please login first" })
 
     }
 

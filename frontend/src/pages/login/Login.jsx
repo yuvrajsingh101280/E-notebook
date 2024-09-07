@@ -37,8 +37,12 @@ const Login = () => {
     setPassword("");
   };
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center flex-col gap-3 items-center h-screen">
       {/* main div */}
+
+      <div className="image mb-3">
+        <img src="logo.png" alt="" />
+      </div>
 
       <div className="bg-[#e3f8da] shadow-md px-10 py-10 rounded-xl">
         {/* Top Heading */}
