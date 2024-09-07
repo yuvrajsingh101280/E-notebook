@@ -26,7 +26,7 @@ const Login = () => {
 
     // condition
 
-    if (loginData.eorr) {
+    if (loginData.error) {
       toast.error(loginData.error);
     } else {
       navigate("/");

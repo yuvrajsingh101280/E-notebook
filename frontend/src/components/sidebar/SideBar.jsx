@@ -1,14 +1,25 @@
 import React from "react";
+import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 const SideBar = () => {
+  const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
   const logout = () => {
     localStorage.clear("token");
-
-    navigate("/login");
+    toast.success("Logged out successfully");
+    // navigate("/login");
   };
-
+  const handleLogin = () => {
+    if (token) {
+      toast("Already Logged in!", {
+        icon: "☺️",
+      });
+      return;
+    } else {
+      navigate("/login");
+    }
+  };
   return (
     <div className="bg-gradient-to-t from-[#F3FF90] to-[#06ab15] h-screen border-r">
       {/* Top Image */}
@@ -93,6 +104,32 @@ const SideBar = () => {
               <span className="font-semibold text-xl">Profile</span>
             </li>
           </Link>
+
+          {/* login */}
+
+          <li
+            onClick={handleLogin}
+            className="cursor-pointer  flex space-x-6 mr-10 transition-all items-center h-16 hover:bg-[#F3FF90] w-52 p-2 rounded-xl "
+          >
+            <svg
+              width="40px"
+              height="40px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 16.5V19C15 20.1046 14.1046 21 13 21H6C4.89543 21 4 20.1046 4 19V5C4 3.89543 4.89543 3 6 3H13C14.1046 3 15 3.89543 15 5V8.0625M20 12L9 12M9 12L11.5 14.5M9 12L11.5 9.5"
+                stroke="#000000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            {/* TExt */}
+            <span className="font-semibold text-xl">Login</span>
+          </li>
 
           {/* Logout */}
 

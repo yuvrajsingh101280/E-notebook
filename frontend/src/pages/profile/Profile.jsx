@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import Layout from "../../components/layout/Layout";
 import myContext from "../../context/data/MyContext";
+import Loader from "../../components/loader/Loader";
 
 const Profile = () => {
+ 
   const context = useContext(myContext);
   const { allNotes } = context;
   const [user, setUser] = useState([]);
@@ -36,11 +38,13 @@ const Profile = () => {
         <div className="flex items-center justify-center mb-2">
           <img className="w-20" src="profile.png" alt="profile image" />
         </div>
-        <h1 className="text-center font-semibold">{user.name}</h1>
-        <h1 className="text-center font-semibold">{user.email}</h1>
-        <h1 className="text-center font-semibold">
-          Total Notes created:{allNotes.length}
-        </h1>
+        <div className="text">
+          <h1 className="text-center font-semibold">{user.name}</h1>
+          <h1 className="text-center font-semibold">{user.email}</h1>
+          <h1 className="text-center font-semibold">
+            Total Notes created:{allNotes.length}
+          </h1>
+        </div>
       </div>
     </Layout>
   );

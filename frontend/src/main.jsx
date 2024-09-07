@@ -17,11 +17,7 @@ import ProtectedRoute from "./components/protectedRoute/ProtectedRoute.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <ProtectedRoute>
-        <Home />,
-      </ProtectedRoute>
-    ),
+    element: <Home />,
   },
   {
     path: "/signup", // Fixed typo: changed '/singup' to '/signup'
