@@ -1,17 +1,50 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 const TopNavBar = () => {
+  const token = localStorage.getItem("token");
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear("token");
-    navigate("/login");
+    if (!token) {
+      toast.success("Already logged out");
+    } else {
+      toast.success("Logged out successfully");
+    }
+    // navigate("/login");
+    navigate("/");
+  };
+
+  const handleLogin = () => {
+    if (token) {
+      toast("Already Logged in!", {
+        icon: "☺️",
+      });
+      return;
+    } else {
+      navigate("/login");
+    }
   };
   return (
     <div className="main lg:flex md:flex flex-wrap justify-between items-center bg-gradient-to-t from-[#F3FF90] to-[#06ab15] fixed w-full top-0 z-40">
-      <div className="left">
+      <div className="left flex justify-around items-center">
         {/* logo */}
         <div className="flex justify-center mb-2">
           <img src="logo.png" alt="" className="w-32 mt-2" />
+        </div>
+        {/* login icon */}
+        <div
+          onClick={handleLogin}
+          className="login cursor-pointer flex justify-center items-center gap-1"
+        >
+          <span>
+            <img
+              width="20"
+              height="20"
+              src="https://img.icons8.com/ios/50/login-rounded-right--v1.png"
+              alt="login-rounded-right--v1"
+            />
+          </span>
+          <span>Login</span>
         </div>
       </div>
 
@@ -88,6 +121,7 @@ const TopNavBar = () => {
               <span>Profile</span>
             </Link>
           </li>
+
           {/* logout  */}
           <li
             onClick={logout}
