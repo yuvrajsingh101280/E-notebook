@@ -7,8 +7,13 @@ const SideBar = () => {
 
   const logout = () => {
     localStorage.clear("token");
-    toast.success("Logged out successfully");
+    if (!token) {
+      toast.success("Already logged out");
+    } else {
+      toast.success("Logged out successfully");
+    }
     // navigate("/login");
+    navigate("/");
   };
   const handleLogin = () => {
     if (token) {

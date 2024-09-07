@@ -5,9 +5,9 @@ import Loader from "../loader/Loader";
 const NoteCard = () => {
   const context = useContext(myContext);
   const { loading, getAllNotes, allNotes, deleteNote } = context;
-
+const token = localStorage.getItem("token")
   useEffect(() => {
-    if (localStorage.getItem("token")) {
+    if (token) {
       getAllNotes();
     }
   }, []);
